@@ -16,9 +16,9 @@ class Triangle
     elsif (@side_one + @side_two <= @side_three) || (@side_one + @side_three <= @side_two) || (@side_two + @side_three <= @side_one)
       raise TriangleError
     end
-    match_one = (@side_one == @side_two) 
-    match_two = (@side_one == @side_three)
-    match_three = (@side_three == @side_two)
+    match_one = @side_one == @side_two 
+    match_two = @side_one == @side_three
+    match_three = @side_three == @side_two
     equilateral = match_one && match_three
     isosceles = match_one || match_two || match_three
     if equilateral
@@ -31,7 +31,7 @@ class Triangle
   end
   
   class TriangleError < StandardError
-    
+
   end
 
 end
