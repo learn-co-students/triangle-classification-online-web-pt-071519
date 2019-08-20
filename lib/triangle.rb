@@ -56,7 +56,7 @@ def kind
 end 
 
 def illegal 
-      if (s_1 == 0 || s_2 == 0  || s_3 == 0) || (s_1 < 0 || s_2 < 0 ||s_3 < 0) || (s_1 + s_2 < s_3 || s_2 + s_3 < s_1 || s_1 + s_3 < s_2 ) 
+      if (s_1 == 0 || s_2 == 0  || s_3 == 0) || (s_1 < 0 || s_2 < 0 ||s_3 < 0) || (s_1 + s_2 <= s_3 || s_2 + s_3 <= s_1 || s_1 + s_3 <= s_2 ) 
         
         #binding.pry 
         raise TriangleError 
@@ -64,6 +64,7 @@ def illegal
         true 
       end 
     end 
+    
   class TriangleError < StandardError 
    
     # def illegal 
