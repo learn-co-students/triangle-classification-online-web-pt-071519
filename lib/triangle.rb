@@ -1,13 +1,32 @@
 class Triangle
+    attr_accessor :a, :b, :c
 
-  def intialize(a, b, c)
-
+  def initialize(a, b, c)
+    @a = a
+    @b = b
+    @c = c
   end
 
   def kind
-    :equilateral
-    :isosceles
-    :scalene
+#equilateral: sides must be a=b=c
+#isosceles: sides must be a=b || b=c || a=c
+#scalene: a != b != c
+#if a+b!>c || a+c!>b || b+c!>a, throw TriangleError
+    if
+      #(a+b>c || a+c>b || b+c>a) == false
+      #begin
+      #  raise TriangleError
+      #  puts message
+      #end
+    #elsif
+      a=b && b=c && a=c
+      :equilateral
+    elsif
+      a = b || b = c || a = c
+      :isosceles
+    else
+      :scalene
+    end
   end
 
   class TriangleError < StandardError
