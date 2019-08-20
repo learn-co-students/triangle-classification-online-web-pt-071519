@@ -1,5 +1,5 @@
 class Triangle
-    attr_accessor :a, :b, :c
+    attr_writer :a, :b, :c
 
   def initialize(a, b, c)
     @a = a
@@ -13,16 +13,16 @@ class Triangle
 #scalene: a != b != c
 #if a+b!>c || a+c!>b || b+c!>a, throw TriangleError
     if
-      #(a+b>c || a+c>b || b+c>a) == false
-      #begin
-      #  raise TriangleError
-      #  puts message
-      #end
-    #elsif
-      a=b && b=c && a=c
-      :equilateral
+      (@a+@b>@c || @a+@c>@b || @b+@c>@a) != true
+      begin
+        raise TriangleError
+        puts message
+      end
     elsif
-      a = b || b = c || a = c
+      @a=@b=@c
+      :equilateral
+   elsif
+      @a = @b || @b = @c || @a = @c
       :isosceles
     else
       :scalene
