@@ -1,7 +1,7 @@
   require 'pry'
 
 class Triangle
-    attr_writer :a, :b, :c
+    attr_reader :a, :b, :c
 
   def initialize(a, b, c)
     @a = a
@@ -28,7 +28,7 @@ class Triangle
   end
 
   class TriangleError < StandardError
-    def message
+    def messagereader
       "This is not a valid triangle"
     end
   end
