@@ -1,3 +1,5 @@
+  require 'pry'
+
 class Triangle
     attr_writer :a, :b, :c
 
@@ -12,17 +14,13 @@ class Triangle
 #isosceles: sides must be a=b || b=c || a=c
 #scalene: a != b != c
 #if a+b!>c || a+c!>b || b+c!>a, throw TriangleError
-    if
-      (@a+@b>@c || @a+@c>@b || @b+@c>@a) != true
-      begin
+    if !(@a+@b>@c) || !(@a+@c>@b) || !(@b+@c>@a)
         raise TriangleError
         puts message
-      end
-    elsif
-      @a=@b=@c
+
+    elsif @a == @b && @b == @c
       :equilateral
-   elsif
-      @a = @b || @b = @c || @a = @c
+   elsif @a == @b || @b == @c || @a == @c
       :isosceles
     else
       :scalene
